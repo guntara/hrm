@@ -1,0 +1,41 @@
+<?php
+$this->breadcrumbs=array(
+	'Employees'=>array('admin'),
+	'Manage',
+);
+
+$this->menu=array(
+	array('label'=>'Create Employee','url'=>array('create')),
+);
+?>
+<?php $this->beginWidget('zii.widgets.CPortlet', array(
+	'title'=>"Manage Employees",
+)); ?>
+	<?php $this->widget('zii.widgets.grid.CGridView', array(
+		'itemsCssClass'=>'table table-hover',
+		'id'=>'employee-grid',
+		'dataProvider'=>$model->search(),
+		'filter'=>$model,
+		'columns'=>array(
+			'id',
+			'employee_id',
+			'citizen_id',
+			'driver_license',
+			'firstname',
+			'middle',
+			/*
+			'lastname',
+			'gender',
+			'marital_status',
+			'placeofbirth',
+			'dateofbirth',
+			'nationality',
+			'ethnic',
+			'photograph',
+			*/
+			array(
+				'class'=>'bootstrap.widgets.TbButtonColumn',
+			),
+		),
+	)); ?>
+<?php $this->endWidget();?>

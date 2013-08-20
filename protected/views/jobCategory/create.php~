@@ -1,0 +1,12 @@
+<?php
+$this->breadcrumbs=array(
+	'Job Categories'=>array('admin'),
+	'Create',
+);
+
+$this->menu=array(
+	array('label'=>'Manage Job Category','url'=>array('admin')),
+);
+?>
+
+<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

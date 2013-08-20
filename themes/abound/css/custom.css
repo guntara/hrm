@@ -1,0 +1,95 @@
+/* ================ Table styles: Begin ================ */
+table.table {
+    width: 100%;
+    border-spacing:0;
+    border-collapse:collapse;    
+}
+table.table th {
+	background:#f28c38;
+	color:#fff;
+	padding:7px;
+	border:1px solid #fff;
+	text-align:left;
+}
+table.table th.center, table.table td.center {
+	text-align:center;
+}
+table.table td {
+	padding:7px;
+	background:#fff;
+	line-height:20px;
+}
+table.table td.comments input {
+	float:left;
+}
+table.table td.comments img {
+	float:left;
+	margin:2px 0 0 2px;
+}
+table thead tr .header {
+	background-image: url(../images/tablesorter-bg.png);
+	background-repeat: no-repeat;
+	background-position: 95% 55%;
+	cursor: pointer;
+}
+table.nosort thead tr .header {
+	background-image: none;
+	cursor: default;
+}
+table tbody tr.odd td {
+	background-color:#eaeaea;
+}
+table tbody tr.total td {
+	background-color:#555657;
+	color:#fff;
+}
+table tbody tr td strong {
+	color:#333;
+	font-weight:bold;
+}
+table tbody tr.total td strong {
+	font-weight:bold;
+	color:#fff;
+}
+table thead tr .headerSortUp {
+	background-image: url(../images/tablesorter-asc.png);
+}
+table thead tr .headerSortDown {
+	background-image: url(../images/tablesorter-dsc.png);
+}
+table.table th.checkbox-col {
+    width: 10px;
+}
+table.table td.right {
+    text-align: right;
+}
+table.table td left {
+    text-align: left;
+}
+
+table tfoot tr.total td {
+	background-color:#555657;
+	color:#fff;
+}
+table tfoot tr td strong {
+	color:#333;
+	font-weight:bold;
+}
+table tfoot tr.total td strong {
+	font-weight:bold;
+	color:#fff;
+}
+table.hover tr:hover, 
+table.hover tr:hover td, 
+table.hover tr:hover td table tbody tr,
+table.hover tr:hover td table tbody tr td {
+    background-color:#CCC;
+}
+table.data th { /* Used in performance/performanceReview */
+    background: #FFFFFF;
+    color: inherit;
+    border: none;
+    font-weight: bold;    
+}
+
+/* ================ Table styles: End ================ */

@@ -1,0 +1,18 @@
+
+
+<?php $this->beginWidget('zii.widgets.CPortlet', array(
+	'title'=>"View Employee Attendances $model->employee",
+)); ?>
+	<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+		'data'=>$model,
+		'attributes'=>array(
+			'employee',
+			'date',
+			'punch_in',
+			'punch_out',
+			'note',
+			'update_by',
+			'update_at',
+		),
+	)); ?>
+<?php $this->endWidget();?>

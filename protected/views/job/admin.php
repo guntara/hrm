@@ -1,0 +1,49 @@
+<?php
+$this->breadcrumbs=array(
+	'Jobs'=>array('admin'),
+	'Manage',
+);
+
+$this->menu=array(
+	array('label'=>'Add Job','url'=>array('create')),
+);
+?>
+
+<?php $this->beginWidget('zii.widgets.CPortlet', array(
+	'title'=>"Manage Jobs",
+)); ?>
+	<?php $this->widget('zii.widgets.grid.CGridView', array(
+		'itemsCssClass'=>'table table-hover',
+		'id'=>'job-grid',
+		'dataProvider'=>$model->search(),
+		'columns'=>array(
+			array(
+				'header'=>'#',
+				'value'=>'$this->grid->dataProvider->pagination->currentPage * $this->grid->dataProvider->pagination->pageSize + ($row+1)',
+				'headerHtmlOptions'=>array('width'=>'21px'),
+				'htmlOptions'=>array('style'=>'text-align: center;'),
+			),
+			array(
+				'name'=>'title',
+				'type'=>'text',
+				'headerHtmlOptions'=>array('width'=>'200px'),
+				'htmlOptions'=>array('style'=>'text-align: left;'),
+
+			),
+			'description',
+			array(
+				'name'=>'specification',
+				'type'=>'text',
+				'headerHtmlOptions'=>array('width'=>'120px'),
+				'htmlOptions'=>array('style'=>'text-align: left;'),
+
+			),
+			array(
+				'header'=>'Action',
+				'headerHtmlOptions'=>array('width'=>'50px'),
+				'class'=>'bootstrap.widgets.TbButtonColumn',
+			),
+		),
+	)); ?>
+
+<?php $this->endWidget();?>
