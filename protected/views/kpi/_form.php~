@@ -66,7 +66,7 @@ function deleteRow(tableID) {
 			<th style='width:5%;'></th>
 			<th style='text-align:left;width:35%;'><?php echo $form->labelEx($model,'kpi'); ?></th>
 			<th style='text-align:left;width:15%;'><?php echo $form->labelEx($model,'weight'); ?></th>
-			<th><div style='float:left;valign:bottom;width:70%;'><?php echo $form->labelEx($model,'note'); ?></div>
+			<th><div style='float:left;width:70%;'><?php echo $form->labelEx($model,'note'); ?></div>
 			    <div style='overflow:hidden;'><input type="button" value="Add" onclick="addRow('dataTable')" class="btn btn-success" />
 				 <input type="button" value="Del" onclick="deleteRow('dataTable')" class="btn btn-danger" />
 			    </div>

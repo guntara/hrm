@@ -80,13 +80,13 @@ class Employee extends CActiveRecord
 			'employee_id' => 'Employee ID',
 			'citizen_id' => 'Citizen ID/KTP',
 			'driver_license' => 'Driver License',
-			'firstname' => 'Firstname',
-			'middle' => 'Middle',
-			'lastname' => 'Lastname',
+			'firstname' => 'First Name',
+			'middle' => 'Middle Name',
+			'lastname' => 'Last Name',
 			'gender' => 'Gender',
 			'marital_status' => 'Marital Status',
-			'placeofbirth' => 'Placeofbirth',
-			'dateofbirth' => 'Dateofbirth',
+			'placeofbirth' => 'Place of Birth',
+			'dateofbirth' => 'Date of Birth',
 			'nationality' => 'Nationality',
 			'ethnic' => 'Ethnic',
 			'photograph' => 'Photograph',
@@ -121,6 +121,27 @@ class Employee extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination' => array(
+				'pageSize' => 20,
+			),
+			'sort' => array(
+				'defaultOrder' => 'firstname',
+			),
 		));
+	}
+
+	public function empList($periode)
+	{
+		$ids = "SELECT `employee` FROM `tbl_review` WHERE `periode`='$periode'";
+		return CHtml::listData(Employee::model()->findAllBySql(
+			"SELECT `id`, CONCAT(firstname, ' ', middle, ' ', lastname) AS `firstname` FROM `tbl_employee` WHERE id NOT IN ($ids)"), 'id', 'firstname');
+	}
+
+	public function getMarital($id)
+	{
+		if (isset($id)) {
+		$provider = Location::model()->findByPK($id);
+		return $provider->name;
+		}
 	}
 }

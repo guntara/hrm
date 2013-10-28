@@ -121,6 +121,30 @@ class Employee extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination' => array(
+				'pageSize' => 20,
+			),
+			'sort' => array(
+				'defaultOrder' => 'firstname',
+			),
 		));
+	}
+
+	public function empList($periode)
+	{
+		$ids = "SELECT `employee` FROM `tbl_review` WHERE `periode`='$periode'";
+		return CHtml::listData(Employee::model()->findAllBySql(
+			"SELECT `id`, CONCAT(firstname, ' ', middle, ' ', lastname) AS `firstname` FROM `tbl_employee` WHERE id NOT IN ($ids)"), 'id', 'firstname');
+	}
+
+	public function getMarital($id)
+	{
+		if (isset($id)) {
+			switch ($id) {
+				case 0: return 'Single'; break;
+				case 1: return 'Married'; break;
+				case 2: return 'Other'; break;
+			}
+		}
 	}
 }

@@ -7,7 +7,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'GPB HR Management',
 	'theme'=>'abound',
 
 	// preloading 'log' component
@@ -28,6 +28,9 @@ return array(
 			'password'=>'jagiring',
 			'generatorPaths' => array('bootstrap.gii'),
 			//'ipFilters'=>array('127.0.0.1','::1'),
+		),
+		'importcsv'=>array(
+			'path'=>'uploads/csv/',
 		),
 	),
 

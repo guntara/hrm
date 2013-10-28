@@ -1,8 +1,6 @@
-<?php
-$this->menu=array(
+<?php $this->menu=array(
 	array('label'=>'Manage Employee','url'=>array('admin')),
-);
-?>
+);?>
 
 <?php $this->beginWidget('zii.widgets.CPortlet', array(
 	'title'=>"Create Employee",

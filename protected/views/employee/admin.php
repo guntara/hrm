@@ -1,13 +1,7 @@
-<?php
-$this->breadcrumbs=array(
-	'Employees'=>array('admin'),
-	'Manage',
-);
-
-$this->menu=array(
+<?php $this->menu=array(
 	array('label'=>'Create Employee','url'=>array('create')),
-);
-?>
+);?>
+
 <?php $this->beginWidget('zii.widgets.CPortlet', array(
 	'title'=>"Manage Employees",
 )); ?>
@@ -23,17 +17,50 @@ $this->menu=array(
 				'headerHtmlOptions'=>array('width'=>'21px'),
 				'htmlOptions'=>array('style'=>'text-align: center;'),
 			),
-			'employee_id',
-			'firstname',
-			'lastname',
-			'gender',
-			'marital_status',
+			array(
+				'header'=>'Employee Name',
+				'name'=>'employee_id',
+				'type'=>'text',
+				'value'=> array($this,'getNames'),
+			),
+			array(
+				'name'=>'employee_id',
+				'type'=>'text',
+				'headerHtmlOptions'=>array('width'=>'12%'),
+				'htmlOptions'=>array('style'=>'text-align: center;'),
+			),
+			array(
+				'name'=>'citizen_id',
+				'type'=>'text',
+				'headerHtmlOptions'=>array('width'=>'15%'),
+				'htmlOptions'=>array('style'=>'text-align: center;'),
+			),
+			array(
+				'name'=>'gender',
+				'type'=>'text',
+				'headerHtmlOptions'=>array('width'=>'10%'),
+				'htmlOptions'=>array('style'=>'text-align: center;'),
+				'filter'=>array('1'=>'Male','0'=>'Female'),
+				'value'=>'($data->gender=="1")?("Male"):("Female")',
+			),
+			array(
+				'name'=>'marital_status',
+				'type'=>'text',
+				'headerHtmlOptions'=>array('width'=>'13%'),
+				'htmlOptions'=>array('style'=>'text-align: center;'),
+				'filter'=>array('0'=>'Single','1'=>'Married','2'=>'Other'),
+				'value'=> array($this,'maritalStatus'),
+			),
+			array(
+				'name'=>'dateofbirth',
+				'type'=>'text',
+				'headerHtmlOptions'=>array('width'=>'13%'),
+				'htmlOptions'=>array('style'=>'text-align: center;'),
+			),
 			/*
-			'citizen_id',
 			'driver_license',
 			'middle',
 			'placeofbirth',
-			'dateofbirth',
 			'nationality',
 			'ethnic',
 			'photograph',

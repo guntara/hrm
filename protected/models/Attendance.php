@@ -38,11 +38,10 @@ class Attendance extends CActiveRecord
 	 */
 	public function rules()
 	{
-		$un = User::model()->findByAttributes(array('email'=>Yii::app()->user->name));
 		return array(
 			array('employee, date, punch_in, punch_out', 'required'),
-			array('update_by','default', 'value'=>$un->id, 'setOnEmpty'=>false, 'on'=>'insert'),
-			array('update_by','default', 'value'=>$un->id, 'setOnEmpty'=>false, 'on'=>'update'),
+			array('update_by','default', 'value'=>Yii::app()->user->id, 'setOnEmpty'=>false, 'on'=>'insert'),
+			array('update_by','default', 'value'=>Yii::app()->user->id, 'setOnEmpty'=>false, 'on'=>'update'),
 			array('update_at','default', 'value'=>new CDbExpression('NOW()'), 'setOnEmpty'=>false,'on'=>'insert'),
 			array('update_at','default', 'value'=>new CDbExpression('NOW()'), 'setOnEmpty'=>false,'on'=>'update'),
 			// The following rule is used by search().

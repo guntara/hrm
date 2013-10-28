@@ -1,9 +1,4 @@
 <?php
-$this->breadcrumbs=array(
-	'Employees'=>array('admin'),
-	'Create',
-);
-
 $this->menu=array(
 	array('label'=>'Manage Employee','url'=>array('admin')),
 );

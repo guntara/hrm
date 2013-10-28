@@ -1,0 +1,23 @@
+<?php $this->menu=array(
+	array('label'=>'List JobStatus','url'=>array('admin')),
+	array('label'=>'Add JobStatus','url'=>array('create')),
+);?>
+
+<?php $this->beginWidget('zii.widgets.CPortlet', array(
+	'title'=>"List Reviews",
+)); ?>
+	<?php $this->widget('bootstrap.widgets.TbGridView',array(
+		'id'=>'job-status-grid',
+		'dataProvider'=>$model->search(),
+		'filter'=>$model,
+		'columns'=>array(
+			'id',
+			'name',
+			array(
+				'header'=>'Action',
+				'headerHtmlOptions'=>array('width'=>'10%'),
+				'class'=>'bootstrap.widgets.TbButtonColumn',
+			),
+		),
+	)); ?>
+<?php $this->endWidget();?>

@@ -125,14 +125,4 @@ class Attendance extends CActiveRecord
 		}
 		return $counts;
 	}
-
-	public function countAbsent($id, $periode)
-	{
-		$absent = 0;
-		$provider = $this->findAll('employee= :id AND date >= :d1 AND date <= :d2', array(':id'=>$id, ':d1'=>$periode[0], ':d2'=>$periode[1]));
-		foreach($provider as $key => $data) {
-			if ($data->punch_in == '00:00:00' && $data->punch_out == '00:00:00') $counts++;
-		}
-		return $counts;
-	}
 }

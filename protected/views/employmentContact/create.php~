@@ -1,0 +1,15 @@
+<?php
+$this->breadcrumbs=array(
+	'Employment Contacts'=>array('index'),
+	'Create',
+);
+
+$this->menu=array(
+	array('label'=>'List EmploymentContact','url'=>array('index')),
+	array('label'=>'Manage EmploymentContact','url'=>array('admin')),
+);
+?>
+
+<h1>Create EmploymentContact</h1>
+
+<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -175,4 +175,22 @@ class EmployeeController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	/** ---------------------------------------------------------------- ADD FUNCTIONS ---------------------------------------------------------------- **/
+	public function getNames($data)
+	{
+		$provider = Employee::model()->findAll('employee_id= :id', array(':id'=>$data->employee_id,));
+		foreach($provider as $key => $data) {
+			$result = $data->firstname . ' ' . $data->middle . ' ' . $data->lastname;
+		}
+		
+		return $result;
+	}
+
+	public function maritalStatus($data)
+	{
+		if ($data->marital_status=="0") return "Single";
+		elseif ($data->marital_status=="1") return "Married";
+		else return "Other";
+	}
 }
